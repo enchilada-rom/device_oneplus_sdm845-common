@@ -346,7 +346,11 @@ PRODUCT_BOOT_JARS += \
     oneplus-fwk
 
 # OnePlus Camera
-$(call inherit-product-if-exists, vendor/oneplus/apps/sdm845/config.mk)
+PRODUCT_PACKAGES += \
+    OnePlusCameraService
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/OnePlusCameraService/permissions/privapp-permissions-com.oneplus.camera.service.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-com.oneplus.camera.service.xml
 
 # Power
 PRODUCT_PACKAGES += \
